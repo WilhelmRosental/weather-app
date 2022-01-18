@@ -15,3 +15,28 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.weather-logo {
+  width: 50%;
+}
+
+.bg-cold, .bg-hot {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-cold {
+  background-color: #CEE9FF;
+}
+
+.bg-hot {
+  background-color: #FF858A;
+}
+
+.error-msg {
+  font-weight: bold;
+  color: red;
+}

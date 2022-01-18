@@ -1,6 +1,7 @@
 import React from 'react';
 import {Field, Form, Formik, ErrorMessage} from "formik";
 import * as Yup from "yup";
+import logo from '../assets/weather-logo.png';
 
 const CityInput = ({onSearch = (city : string) => {}}) => {
     interface Values {
@@ -24,16 +25,17 @@ const CityInput = ({onSearch = (city : string) => {}}) => {
     })
 
     return (
-        <div className="input-form card p-2 w-25">
+        <div className="input-form card d-flex flex-column align-items-center p-2 w-25">
+            <img className="weather-logo mb-3" src={logo}></img>
             <Formik
                 initialValues={values}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}>
-                <Form>
-                    <label htmlFor="city">Entrez le nom d'une ville : </label>
-                    <Field id="city" name="city" />
-                    <button className="btn btn-primary" type="submit">Submit</button>
-                    <ErrorMessage name="city"/>
+                <Form className="d-flex flex-column">
+                    <label className="mb-1" htmlFor="city">Entrez le nom d'une ville : </label>
+                    <Field className="mb-1" id="city" name="city" />
+                    <ErrorMessage className="error-msg" name="city"/>
+                    <button className="btn btn-primary mt-3" type="submit">Submit</button>
                 </Form>
             </Formik>
         </div>

@@ -33,13 +33,15 @@ const App = () => {
     },[data || error]);
 
     return (
-        <div className="App d-flex justify-content-center align-items-center h-100 w-100">
+        <div className="App d-flex flex-column justify-content-center align-items-center h-100 w-100">
             {isResult ? (
-                <WeatherResult temp={8} onClick={() => toggleResult()}/>
-            ) : (
-                    <CityInput onSearch={(city : string) => setUrl(`${API_URL}/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)} />
-                )
+                <WeatherResult temp={data!.main.temp} onClick={() => toggleResult()}/>
+            ) :
+                <CityInput onSearch={(city : string) => setUrl(`${API_URL}/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)} />
             }
+            {error ? (
+                <p className="error-msg">Error when fetching: {error}</p>
+            ) : null}
         </div>
     );
 }

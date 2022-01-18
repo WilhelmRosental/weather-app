@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const useFetchWeather = (initialUrl : string) => {
     // create state variables
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<any>(null);
     const [error, setError] = useState(null);
     const [url, setUrl] = useState<string>(initialUrl);
 
